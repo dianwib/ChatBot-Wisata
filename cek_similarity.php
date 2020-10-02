@@ -52,10 +52,10 @@
 
 	    if (empty($array_tf_idf_query)){
 	    	$output= "Maaf keyword salah";
-	    	$sugestion4 = "wisata religi Sumenep";
-	    	$sugestion1 = "wisata alam Sumenep";
-	    	$sugestion3 = "wisata sejarah Sumenep";
-	    	$sugestion2 = "Daftar Kepulauan Sumenep";
+	    	$sugestion4 = "Pantai Lon Malang";
+	    	$sugestion1 = "Wisata Halal Sampang";
+	    	$sugestion3 = "Masjid Agung Sampang";
+	    	$sugestion2 = "Gili Mandangin";
 
 
 	    }
@@ -84,20 +84,20 @@
 			
 
 
-			$id_vip=[21,32,50,57,74,82,84];
-			$random_keys=array_rand($id_vip,4);
+			// $id_vip=[21,32,50,57,74,82,84];
+			// $random_keys=array_rand($id_vip,4);
 
-			if ($temp_similarity[$id_sugesst1]<0.3){
-				$id_sugesst1= $id_vip[$random_keys[0]];
-			}
-			if ($temp_similarity[$id_sugesst2]<0.2){
-				$id_sugesst2=$id_vip[$random_keys[1]];
-			}
-			if ($temp_similarity[$id_sugesst3]<0.1){
-				$id_sugesst3=$id_vip[$random_keys[2]];
-			}
+			// if ($temp_similarity[$id_sugesst1]<0.3){
+			// 	$id_sugesst1= $id_vip[$random_keys[0]];
+			// }
+			// if ($temp_similarity[$id_sugesst2]<0.2){
+			// 	$id_sugesst2=$id_vip[$random_keys[1]];
+			// }
+			// if ($temp_similarity[$id_sugesst3]<0.1){
+			// 	$id_sugesst3=$id_vip[$random_keys[2]];
+			// }
 			
-			$id_sugesst4=$id_vip[$random_keys[3]];
+			// $id_sugesst4=$id_vip[$random_keys[3]];
 			
 			// Select SUGGEST 1
 			$sql="SELECT * FROM chatbot_hints WHERE id_hint=".$id_sugesst1;

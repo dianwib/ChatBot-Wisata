@@ -179,7 +179,7 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
 
     padding: 15px;
     display: inline-block;
-    height: 74%;
+    height: 72%;
     /*background:  #e6ddd4;*/
     overflow: auto;
 }
@@ -265,7 +265,7 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
     white-space: nowrap;
     position: absolute;
     z-index: 1;
-    top: 15px;
+    top: 48px;
     right: 15px;
     text-align: right;
 }

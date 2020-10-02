@@ -4,7 +4,7 @@
 	    <meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=yes">
-	    <title>TrunojoyoBot</title>
+	    <title>SampangTourismBot</title>
 	    <meta name="author" content="css3transition" />
 	    <link rel="shortcut icon" href="img/robotchatbot.ico">
 	
@@ -23,9 +23,11 @@
 	</head>
 	<body>
 		<div class="wrapper">
-	  <h1 class="title">TrunojoyoBot<img src="img/robotchatbot.png" alt="SakeraBot" style="max-height: 2.8em; "></h1>
+	  <h1 class="title"><img src="img/bg.png" alt="SakeraBot" style="max-height: 6.3em; ">
+	  	<!-- <br>SampangTourismBot</h1> -->
 	  <!-- <p class="paragraph">Selamat datang di TrunojoyoBot.</p>   -->
 	</div>
+	
 	<!-- Chat bot UI start -->
 	<div class="chat-screen">
 	    <div class="chat-header">
@@ -47,22 +49,24 @@
 	    </div>
 	    
 	    <div class="chat-body hide start_chat messages-list" style=" background-image: url('img/patern.png');">
-	        <div class="chat-bubble you " style="    margin-bottom: 12px;"> Welcome on board @TrunojoyoBot. I'm here to help you with all Sumenep halal tourism information. feel free to ask me questions. :)</div>
+	        <div class="chat-bubble you " id="text_judul" style="    margin-bottom: 12px;"> Welcome on board @SampangTourismoBot. I'm here to help you with all Sampang halal tourism information. feel free to ask me questions. :)</div>
 	    
 	    </div>
 
-	 <div id="chat" class="conv-form-wrapper">
+
+	    <div class="chat-input hide">
+	    		 <div id="chat" class="conv-form-wrapper">
 	 <div class="options dragscroll" style="text-align: center;">
-	 	<div class="option"  onclick="send_msg_dari_sugesstion('Lokasi Masjid Jamik')">Lokasi Masjid Jamik</div>
-	    <div class="option"  onclick="send_msg_dari_sugesstion('wisata sejarah Sumenep')">Wisata Sejarah Sumenep</div>
-	    <div class="option"  onclick="send_msg_dari_sugesstion('wisata religi Sumenep')">Wisata Religi Sumenep</div>
-	 	<div class="option"  onclick="send_msg_dari_sugesstion('wisata alam Sumenep')">Wisata Alam Sumenep</div>
+
+	    <div class="option"  onclick="send_msg_dari_sugesstion('Wisata Halal Sampang')">Wisata Halal Sampang</div>
+	 	<div class="option"  onclick="send_msg_dari_sugesstion('Masjid Agung Sampang')">Masjid Agung Sampang</div>
+	    <div class="option"  onclick="send_msg_dari_sugesstion('Gili Mandangin')">Gili Mandangin</div>
+	 	<div class="option"  onclick="send_msg_dari_sugesstion('Makam Ratu Ibu')">Makam Ratu Ibu</div>
 	</div>
 	    
 	</div>
 
 
-	    <div class="chat-input hide">
 	        <input type="text"  id="input-me" placeholder="Type a message...">
 	        <div class="input-action-icon" onclick="send_msg()">
 	           
@@ -71,10 +75,15 @@
 	    </div>
 	   
 	</div>
-	<div class="chat-bot-icon">
+	<div class="chat-bot-icon" id="indo">
 	    <!-- <img src="img/we-are-here.svg"/> -->
 	    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square animate"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
 	</div>
+<div class="chat-bot-icon" id="eng" style="right: 80px;">
+	    <!-- <img src="img/we-are-here.svg"/> -->
+	    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square animate"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+	</div>
+
 
 	<script type="257be86a981729866f2fa61c-text/javascript">
 	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -100,13 +109,28 @@
 	        });
 	        </script>
 	<script>
+		var tipe="";
 	    $(document).ready(function () {
 	        //Toggle fullscreen
-	        $(".chat-bot-icon").click(function (e) {
-	            // $(this).children('img').toggleClass('hide');
-	            // $(this).children('svg').toggleClass('animate');
+
+	        $("#indo").click(function (e) {
+			tipe="indo";
+
 	            $('.chat-screen').toggleClass('show-chat');
 	             $('.chat-mail').addClass('hide');
+	             $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
+	            $('.chat-body').removeClass('hide');
+	            $('.chat-input').removeClass('hide');
+	            $('.chat-header-option').removeClass('hide');
+	            $('.chat-bot-icon').hide();
+
+	        });
+
+	         $("#eng").click(function (e) {
+	         	tipe = "eng";
+	            $('.chat-screen').toggleClass('show-chat');
+	             $('.chat-mail').addClass('hide');
+	             $('#text_judul').text('Welcome on board @SampangTourismoBot. Im here to help you with all Sampang halal tourism information. feel free to ask me questions. :)');
 	            $('.chat-body').removeClass('hide');
 	            $('.chat-input').removeClass('hide');
 	            $('.chat-header-option').removeClass('hide');
@@ -120,13 +144,8 @@
 	  });
 	    });
 
-	</script>
-	</body>
 
-	</html>
-
-	 <script type="text/javascript">
-			 function getCurrentTime(){
+	    function getCurrentTime(){
 				var now = new Date();
 				var hh = now.getHours();
 				var min = now.getMinutes();
@@ -145,6 +164,7 @@
 				var html='<div class="chat-bubble me"> '+txt+'</div>';
 				jQuery('.messages-list').append(html);
 				jQuery('#input-me').val('');
+				if (tipe=="indo"){
 				if(txt){
 					jQuery.ajax({
 						url:'cek_similarity.php',
@@ -168,12 +188,39 @@
 								jQuery('.chat-screen .chat-body').scrollTop(jQuery('.chat-screen .chat-body')[0].scrollHeight);
 						}
 					});}
-			 }
+				}
 
+				else{
+				if(txt){
+					jQuery.ajax({
+						url:'cek_similarity_eng.php',
+						type:'post',
+						data:'txt='+txt,
+						success:function(result){
+						var result = JSON.parse(result);
+						var result1="'"+result[1]+"'";
+						var result2="'"+result[2]+"'";
+						var result3="'"+result[3]+"'";
+						var result4="'"+result[4]+"'";
+						// alert(result);
+
+						var html='<div class="chat-bubble you"> '+result[0]+'</div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';			
+								
+
+								jQuery('.messages-list').append(html);
+							var html_sugesstion='<div class="option" onclick="send_msg_dari_sugesstion('+result1+')">'+result[1]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result2+')">'+result[2]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result3+')">'+result[3]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result4+')">'+result[4]+'</div>';
+								jQuery('.dragscroll').empty();
+								jQuery('.dragscroll').append(html_sugesstion);			
+								jQuery('.chat-screen .chat-body').scrollTop(jQuery('.chat-screen .chat-body')[0].scrollHeight);
+						}
+					});}
+			 }
+			}
 			 function send_msg_dari_sugesstion(txt){
 				var html='<div class="chat-bubble me"> '+txt+'</div>';
 				jQuery('.messages-list').append(html);
 				jQuery('#input-me').val('');
+				if (tipe=="indo"){
 				if(txt){
 					jQuery.ajax({
 						url:'cek_similarity.php',
@@ -199,6 +246,41 @@
 						}
 					});}
 			 }
+			 else{
+				if(txt){
+					jQuery.ajax({
+						url:'cek_similarity_eng.php',
+						type:'post',
+						data:'txt='+txt,
+						success:function(result){
+						var result = JSON.parse(result);
+						var result1="'"+result[1]+"'";
+						var result2="'"+result[2]+"'";
+						var result3="'"+result[3]+"'";
+						var result4="'"+result[4]+"'";
+
+											// alert(result);
+
+						var html='<div class="chat-bubble you"> '+result[0]+'</div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';			
+								
+
+								jQuery('.messages-list').append(html);
+									var html_sugesstion='<div class="option" onclick="send_msg_dari_sugesstion('+result1+')">'+result[1]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result2+')">'+result[2]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result3+')">'+result[3]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result4+')">'+result[4]+'</div>';
+								jQuery('.dragscroll').empty();
+								jQuery('.dragscroll').append(html_sugesstion);			
+								jQuery('.chat-screen .chat-body').scrollTop(jQuery('.chat-screen .chat-body')[0].scrollHeight);
+						}
+					});}
+			 }
+			}
+
+	</script>
+	</body>
+
+	</html>
+
+	 <script type="text/javascript">
+
 
 
 	      </script>

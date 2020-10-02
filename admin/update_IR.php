@@ -101,7 +101,7 @@ while($row = mysqli_fetch_assoc($res)) {
 function create_table_tf($corpus)
 {
 	include('../database.php');
-	$sql="ALTER TABLE tf ADD COLUMN ".$corpus." INT(2) NOT NULL";
+	$sql="ALTER TABLE tf ADD COLUMN ".$corpus." INT(2) DEFAULT 0 NOT NULL";
 	mysqli_query($con, $sql);
 
 }
