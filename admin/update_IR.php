@@ -11,7 +11,7 @@ for ($i=0; $i <count($all_id) ; $i++) {
 
 }
 
-echo '<script>alert("Selesai."); document.location="index.php";</script>';
+echo '<script>alert("Selesai."); document.location="index.php?hal=indonesia";</script>';
 
 
 function parse_corpus_tf_idf()#penjabaran korpus perhitungan tf dan bobot tf
@@ -138,13 +138,15 @@ function calc_tf_data($id,$corpus_perdata)#hitung term frequency data
     // $insql_bobot_tf="INSERT INTO bobot_tf (id_hint";
     // $valsql_bobot_tf="VALUES (".$id;
     foreach ($array_count_corpus as $key => $value) {
+    	if ($key !='' and $key!=' '){
+    	
     	$insql_tf=$insql_tf.",".$key;
     	$valsql_tf=$valsql_tf.",".$array_count_corpus[$key];
 
     	// $insql_bobot_tf=$insql_bobot_tf.",".$key;
     	// $temp_log=1+log10($array_count_corpus[$key]);
     	// $valsql_bobot_tf=$valsql_bobot_tf.",".$temp_log;
-    	
+    	}
 	
     }
 		

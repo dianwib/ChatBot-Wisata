@@ -125,7 +125,7 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
 }
 .chat-screen .chat-header .chat-header-title {
     display: inline-block;
-    width: calc(100% - 50px);
+    width: calc(82% - 50px);
     color: #fff;
     font-size: 20px;
 }
@@ -400,4 +400,16 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
     transform: rotate(360deg);
     opacity: 1;
     z-index: 1;
+}
+
+#map-canvas{
+    /*border: groove 1px #ccc;*/
+    height: 200px; 
+    width: 100%; 
+}
+
+#video-canvas{
+    /*border: groove 1px #ccc;*/
+    height: 200px; 
+    width: 100%; 
 }

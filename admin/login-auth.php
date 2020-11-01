@@ -14,7 +14,8 @@ if(mysqli_num_rows($res)>0){
     $_SESSION['masuk']=True;
     $_SESSION['username']=$username;
     $_SESSION['password']=$password;
-    header('location:index.php');
+
+    header('location:index.php?hal=dashboard');
 }
 else{
     header('location:login.php');

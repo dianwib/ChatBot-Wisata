@@ -27,10 +27,10 @@
 
 
 
-	function calc_akar_tf_idf_query($corpus_perdata)#hitung term frequency data
+		function calc_akar_tf_idf_query($corpus_perdata)#hitung term frequency data
 	{
 		include('database.php');
-		$THRESHOLD=0.6;
+		$THRESHOLD=0.75;
 
 		$array_count_corpus_query=array_count_values(explode( " ", $corpus_perdata));
 	    $data_idf=get_record_idf()[0];
@@ -49,22 +49,24 @@
 	    	}
 	    	
 	    }
-
+// JIKA QUERY TDK DITEMUKAN
 	    if (empty($array_tf_idf_query)){
 	    	$output= "Maaf keyword salah";
 	    	$sugestion4 = "Pantai Lon Malang";
 	    	$sugestion1 = "Wisata Halal Sampang";
 	    	$sugestion3 = "Masjid Agung Sampang";
 	    	$sugestion2 = "Gili Mandangin";
+	    	$list_output = array($output,$sugestion1, $sugestion2,$sugestion3,$sugestion4);
 
 
 	    }
+
+// JIKA QUERY DITEMUKAN
 
 	    else{
 
 	    	$temp_akar_tf_idf_query=sqrt($temp_pangkat_tf_idf);
 			$all_id=get_all_id('tf_eng');
-
 			$temp_similarity=array();
 
 			for ($i=0; $i < count($all_id) ; $i++) {
@@ -142,19 +144,37 @@
 			$res=mysqli_query($con, $sql);
 			while($row=mysqli_fetch_assoc($res)){
 			$output= $row['reply'];
+			$map= $row['map'];
+			$video= $row['video'];
+
+			add_to_log($id_max);
 			}
+	    	$list_output = array($output,$sugestion1, $sugestion2,$sugestion3,$sugestion4,$map,$video);
+
 
 		}
 			
+			// QUERY UNDER TH
 			else{
 			$output= "Maaf keyword kurang lengkap / di bawah threshold";
+	    	$list_output = array($output,$sugestion1, $sugestion2,$sugestion3,$sugestion4);
+
 			}
 
 			
 	    }
 	    // echo $output;
-	    $list_output = array($output,$sugestion1, $sugestion2,$sugestion3,$sugestion4);
+	    // $list_output = array($output,$sugestion1, $sugestion2,$sugestion3,$sugestion4,cek_map($id_max));
 		echo json_encode($list_output);
+	}
+
+
+
+	function add_to_log($idmax,$kolom='id_hint_eng'){
+		include('database.php');
+		$sql= "INSERT INTO log (".$kolom.") VALUES (".$idmax.")"; 
+		mysqli_query($con,$sql);
+
 	}
 
 
