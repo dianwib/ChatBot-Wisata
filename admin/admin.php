@@ -25,11 +25,12 @@ include('../database.php');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Halaman Dashboard</h1>
+              <h1 class="m-0 text-dark">Halaman Admin</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="?hal=dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active">Admin </li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -64,12 +65,14 @@ include('../database.php');
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
+                      Username
                       <div id="txt_user" class="lead"><?php echo $row['username'] ?></div>
+                      Password
                       <div id="txt_pass"><?php echo $row['password'] ?></div>
                       
                     </div>
                     <div class="col-5 text-center">
-                      <img src="lte/dist/img/user2-160x160.jpg" alt="" class="img-circle img-fluid">
+                      <img src="../img/adminLogo.png" alt="" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -168,7 +171,9 @@ include('../database.php');
         $sql = mysqli_query($con, "UPDATE admin SET username='$username', password='$password' WHERE id_admin='$id'") or die(mysqli_error($con));
       
       if($sql){
+        $_SESSION['username']=$username;
         echo '<script>alert("Berhasil mengupdate data."); document.location="index.php?hal=admin";</script>';
+
       }else{
         echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
       }

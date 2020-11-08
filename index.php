@@ -6,7 +6,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=yes">
 	    <title>SampangTourismBot</title>
 	    <meta name="author" content="css3transition" />
-	    <link rel="shortcut icon" href="img/robotchatbot.ico">
+	    <link rel="shortcut icon" href="img/sampangLogo4.ico">
 	
 	    <!-- BEGIN GLOBAL MANDATORY STYLES -->
 	   <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
@@ -47,7 +47,7 @@ body {
 	        </div>
 	    	<div class="chat-header-title" style="text-align: center; transform: translateX(8%);">
 	        
-	    		... <img src="img/robotchatbot.png" alt="SakeraBot" style="max-height: 70px;"> ...
+	    		... <img src="img/logonew/logoSampang.gif" alt="SakeraBot" style="max-height: 100px;"> ...
 	        </div>
 	        <div class="chat-header-option hide">
 	            <span class="dropdown custom-dropdown">
@@ -67,7 +67,9 @@ body {
 	    </div>
 
 
-		 <div id="chat" class="conv-form-wrapper">
+		 <div id="chat" class="conv-form-wrapper" style="text-align: center;">
+	 	<!-- <p style="margin: 0%;">Suggestion :</p> -->
+
 	 <div class="options dragscroll" style="text-align: center; white-space: normal;overflow: scroll;">
 	   <!--  <div class="option"  onclick="send_msg_dari_sugesstion('Wisata Halal Sampang')">Wisata Halal Sampang</div>
 	 	<div class="option"  onclick="send_msg_dari_sugesstion('Masjid Agung Sampang')">Masjid Agung Sampang</div>
@@ -187,15 +189,18 @@ body {
 	            // $(this).children('svg').toggleClass('animate');
 			   $('.chat-screen').toggleClass('show-chat');
 	            $('.chat-mail').addClass('hide');
-	            $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
+	            // $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
 	            $('.chat-body').removeClass('hide');
 	            $('.chat-input').removeClass('hide');
 	            $('.chat-header-option').removeClass('hide');
 	            $('.chat-bot-icon').hide();
 	 		// console.log("TIPE",tipe ,'idImg', $('.imgType').attr('id'));
+				if (tipe=="indo"){
 	        	getAwalSuggestion('indo');
-	 		
-
+	        	}
+	        	else{
+	        	getAwalSuggestion('eng');
+	        	}
 	        });
 
 	        $("#indo").click(function (e) {
@@ -206,7 +211,7 @@ body {
 	           $('.imgTypeIndo').attr('width','22');
 	           $('.imgTypeIndo').attr('height','22');
 	           $('.imgTypeInd').attr('viewBox','0  22 22');
-		        $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
+		        // $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
 				tipe="indo";
 
 
@@ -220,7 +225,7 @@ body {
 	           $('.imgTypeIndo').attr('width','16');
 	           $('.imgTypeIndo').attr('height','16');
 	           $('.imgTypeInd').attr('viewBox','0 0 16 16');
-	           $('#text_judul').text('Welcome on board @SampangTourismoBot. Im here to help you with all Sampang halal tourism information. feel free to ask me questions. :)');
+	           // $('#text_judul').text('Welcome on board @SampangTourismoBot. Im here to help you with all Sampang halal tourism information. feel free to ask me questions. :)');
 	         	tipe = "eng";
 
 	 // console.log("TIPE",tipe ,'idImg', $('.imgType').attr('id'));
@@ -259,6 +264,7 @@ body {
 								jQuery('.dragscroll').empty();
 								jQuery('.dragscroll').append(html_sugesstion);			
 								jQuery('.chat-screen .chat-body').scrollTop(jQuery('.chat-screen .chat-body')[0].scrollHeight);
+								// console.log("scroll",jQuery('.chat-screen ')[0].scrollHeight);
 						}
 					});
 	    	}
@@ -302,7 +308,7 @@ body {
 						var html='<div class="chat-bubble you"> '+result[0]+'</div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';	
 						jQuery('.messages-list').append(html);		
 						
-						if (result[5]!=null){
+						if (result[5]!='' && result[5]!=null){
 							// CEK MAPS
 							var map_objek=cek_map(result[5]);
 							var map='<div class="chat-bubble you">  <iframe id="map-canvas" src="'+map_objek+'" allowfullscreen></iframe> </div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';
@@ -310,7 +316,7 @@ body {
 
 						}
 
-						if (result[6]!=null){
+						if (result[6]!='' && result[6]!=null){
 							// CEK Video
 							var video_objek=cek_video(result[6]);
 							var video='<div class="chat-bubble you">  <iframe id="video-canvas" src="'+video_objek+'" allowfullscreen></iframe> </div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';
@@ -346,7 +352,7 @@ body {
 						var html='<div class="chat-bubble you"> '+result[0]+'</div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';					
 						jQuery('.messages-list').append(html);
 
-						if (result[5]!=null){
+						if (result[5]!='' && result[5]!=null){
 							// CEK MAPS
 							var map_objek=cek_map(result[5]);
 							var map='<div class="chat-bubble you">  <iframe id="map-canvas" src="'+map_objek+'" allowfullscreen></iframe> </div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';
@@ -354,7 +360,7 @@ body {
 
 						}
 
-						if (result[6]!=null){
+						if (result[6]!='' && result[6]!=null){	
 							// CEK Video
 							var video_objek=cek_video(result[6]);
 							var video='<div class="chat-bubble you">  <iframe id="video-canvas" src="'+video_objek+'" allowfullscreen></iframe> </div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';
@@ -393,14 +399,14 @@ body {
 							var html='<div class="chat-bubble you"> '+result[0]+'</div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';			
 								jQuery('.messages-list').append(html);
 								
-						if (result[5]!=null){
+						if (result[5]!='' && result[5]!=null){
 							// CEK MAPS
 							var map_objek=cek_map(result[5]);
 							var map='<div class="chat-bubble you">  <iframe id="map-canvas" src="'+map_objek+'" allowfullscreen></iframe> </div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';
 							jQuery('.messages-list').append(map);		
 
 						}
-						if (result[6]!=null){
+						if (result[6]!='' && result[6]!=null){
 							// CEK Video
 							var video_objek=cek_video(result[6]);
 							var video='<div class="chat-bubble you"> <iframe id="video-canvas" src="'+video_objek+'" allowfullscreen></iframe> </div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';
@@ -433,7 +439,7 @@ body {
 						var html='<div class="chat-bubble you"> '+result[0]+'</div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';			
 						jQuery('.messages-list').append(html);
 
-						if (result[5]!=null){
+						if (result[5]!='' && result[5]!=null){
 							// CEK MAPS
 							var map_objek=cek_map(result[5]);
 							var map='<div class="chat-bubble you">  <iframe id="map-canvas" src="'+map_objek+'" allowfullscreen></iframe> </div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';
@@ -441,7 +447,7 @@ body {
 
 						}
 
-						if (result[6]!=null){
+						if (result[6]!='' && result[6]!=null){
 							// CEK Video
 							var video_objek=cek_video(result[6]);
 							var video='<div class="chat-bubble you">  <iframe id="video-canvas" src="'+video_objek+'" allowfullscreen></iframe> </div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';

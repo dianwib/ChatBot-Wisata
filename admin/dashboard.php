@@ -54,72 +54,46 @@ include('../database.php');
             <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Top 5 ChatBot Indonesia</h3>
+                <h3 class="card-title">Top 10 ChatBot </h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>                  
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Pertanyaan</th>
-                      <th>Jumlah View</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                   
+              <div class="card-body table-responsive p-0">
+                                      
+
+                                      <div class="pieID pie">
+                                         </div>
+                                         <ul class="pieID legend">
                                     <?php
                                         $no=1;
                                         $cb = mysqli_query($con,"SELECT count(*) as total, chatbot_hints.question FROM log inner join chatbot_hints on log.id_hint_id=chatbot_hints.id_hint where log.id_hint_id is not null group by id_hint_id order by total desc limit 5;");
                                         while($row = mysqli_fetch_array($cb))
                                         {
-                                            echo "<tr>
-                                            <td>".$no."</td>
-                                            <td>".$row['question']."</td>
-                                            <td>".$row['total']."</td>";
-                                        $no+=1;
+                                            echo '<li>
+                                                    <em>'.$row['question'].'</em>
+                                                    <span>'.$row['total'].'</span>
+                                                    </li>';
+                              
+                              
+
                                         }
                                     ?>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
+                            
                       
-                      <!-- /.card -->
-                    </div>
-
-
-                     <div class="col-md-12">
-                              <div class="card">
-                                <div class="card-header">
-                                  <h3 class="card-title">Top 5 ChatBot English</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                  <table class="table table-bordered">
-                                    <thead>                  
-                                      <tr>
-                                        <th style="width: 10px">No</th>
-                                        <th>Pertanyaan</th>
-                                        <th>Jumlah View</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                   
                                     <?php
                                         $no=1;
                                         $cb = mysqli_query($con,"SELECT count(*) as total, chatbot_hints_eng.question FROM log inner join chatbot_hints_eng on log.id_hint_eng=chatbot_hints_eng.id_hint where log.id_hint_eng is not null group by id_hint_eng order by total desc limit 5;");
                                         while($row = mysqli_fetch_array($cb))
                                         {
-                                            echo "<tr>
-                                            <td>".$no."</td>
-                                            <td>".$row['question']."</td>
-                                            <td>".$row['total']."</td>";
-                                        $no+=1;
+                                            echo '<li>
+                                                    <em>'.$row['question'].'</em>
+                                                    <span>'.$row['total'].'</span>
+                                                    </li>';
+                              
+                              
+
                                         }
                                     ?>
-                            </tbody>
-                          </table>
+                                  </ul>
                         </div>
                       </div>
                       
@@ -139,8 +113,8 @@ include('../database.php');
                                     <thead>                  
                                       <tr>
                                         <th style="width: 10px">No</th>
-                                        <th>Pertanyaan</th>
-                                        <th>Waktu</th>
+                                        <th>ChatBot</th>
+                                        <th>Terakhir Dilihat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -174,12 +148,7 @@ include('../database.php');
                       <!-- /.card -->
                     </div>
 
-
-
-
-
-
-
+                     
 
 
                         </div>
@@ -188,8 +157,142 @@ include('../database.php');
             </div>
         </div>
 
- 
+ <style type="text/css">
+   .pieID {
+  display: inline-block;
+  vertical-align: top;
+}
+.pie {
+  height: 220px;
+  width: 220px;
+  position: relative;
+  margin: 0 30px 30px 0;
+}
+.pie::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  background: #EEE;
+  border-radius: 50%;
+  top: 50px;
+  left: 50px;
+}
+.pie::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 3px 4px rgba(0,0,0,0.1);
+  margin: 220px auto;
+  
+}
+.slice {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  clip: rect(0px, 220px, 220px, 100px);
+  animation: bake-pie 1s;
+}
+.slice span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  clip: rect(0px, 200px, 200px, 100px);
+}
+.legend {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: #FFF;
+  /*padding: 15px;*/
+  font-size: 13px;
+  /*box-shadow: 1px 1px 0 #DDD,
+              2px 2px 0 #BBB;*/
+}
+.legend li {
+  width: 103%;
+  height: 1.25em;
+  margin-bottom: 0.7em;
+  padding-left: 0.5em;
+  border-left: 1.25em solid black;
+}
+.legend em {
+  font-style: normal;
+}
+.legend span {
+  float: right;
+}
 
+
+ </style>
+<script type="text/javascript">
+  function sliceSize(dataNum, dataTotal) {
+  return (dataNum / dataTotal) * 360;
+}
+function addSlice(sliceSize, pieElement, offset, sliceID, color) {
+  $(pieElement).append("<div class='slice "+sliceID+"'><span></span></div>");
+  var offset = offset - 1;
+  var sizeRotation = -179 + sliceSize;
+  $("."+sliceID).css({
+    "transform": "rotate("+offset+"deg) translate3d(0,0,0)"
+  });
+  $("."+sliceID+" span").css({
+    "transform"       : "rotate("+sizeRotation+"deg) translate3d(0,0,0)",
+    "background-color": color
+  });
+}
+function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+  var sliceID = "s"+dataCount+"-"+sliceCount;
+  var maxSize = 179;
+  if(sliceSize<=maxSize) {
+    addSlice(sliceSize, pieElement, offset, sliceID, color);
+  } else {
+    addSlice(maxSize, pieElement, offset, sliceID, color);
+    iterateSlices(sliceSize-maxSize, pieElement, offset+maxSize, dataCount, sliceCount+1, color);
+  }
+}
+function createPie(dataElement, pieElement) {
+  var listData = [];
+  $(dataElement+" span").each(function() {
+    listData.push(Number($(this).html()));
+  });
+  var listTotal = 0;
+  for(var i=0; i<listData.length; i++) {
+    listTotal += listData[i];
+  }
+  var offset = 0;
+  var color = [
+    "cornflowerblue", 
+    "olivedrab", 
+    "orange", 
+    "tomato", 
+    "crimson", 
+    "purple", 
+    "turquoise", 
+    "forestgreen", 
+    "navy", 
+    "gray"
+  ];
+  for(var i=0; i<listData.length; i++) {
+    var size = sliceSize(listData[i], listTotal);
+    iterateSlices(size, pieElement, offset, i, 0, color[i]);
+    $(dataElement+" li:nth-child("+(i+1)+")").css("border-color", color[i]);
+    offset += size;
+  }
+}
+createPie(".pieID.legend", ".pieID.pie");
+
+</script>
 
     
     </section>

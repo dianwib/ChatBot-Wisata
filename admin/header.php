@@ -1,3 +1,5 @@
+      <link rel="shortcut icon" href="../img/sampangLogo4.ico">
+
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
