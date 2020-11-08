@@ -74,8 +74,8 @@ include('../database.php');
                                         {
                                             echo "<tr>
                                             <td>".$no."</td>
-                                            <td>".$row['question']."</td>
-                                            <td>".$row['reply']."</td>"?>
+                                            <td  style='text-align: justify;'>".$row['question']."</td>
+                                            <td  style='text-align: justify;'>".$row['reply']."</td>"?>
                                             <?php if ($row['map']!=''){
                                             echo "<td><a href='javascript:void(0)'  data-map='".$row['map']."' data-toggle='tooltip' title='Lihat Map' class='badge badge-success view-map'><i class='far fa fa-search'></i> Map</a></td>";                          
                                             }  

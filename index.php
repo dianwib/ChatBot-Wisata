@@ -9,15 +9,19 @@
 	    <link rel="shortcut icon" href="img/robotchatbot.ico">
 	
 	    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-	    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+	   <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
+<style>
+body {
+    font-family: 'Amaranth';font-size: 22px;
+}
+</style>
 	    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	    <link href="css/main.css" rel="stylesheet" type="text/css" />
 	    <!-- END GLOBAL MANDATORY STYLES -->
 	    <link href="css/select2.min.css" rel="stylesheet" type="text/css"/>
 	    <link href="css/chatBot.css" rel="stylesheet" type="text/css"/>
+
 	    <link href="css/timeline.css" rel="stylesheet" type="text/css"/>
-
-
 		<link rel="stylesheet" type="text/css" href="dist/jquery.convform.css">
 
 	</head>
@@ -34,7 +38,10 @@
 	    	<div class="chat-header-option hide">
 	            <span class="dropdown custom-dropdown">
 	               <a class="dropdown-toggle"  href="javascript:void(0);">
-	               <img src="img/united-kingdom.png" id="eng"  alt="logoIndo" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line>
+	               <img  class="imgTypeIndo" src="img/indonesia.png" id="indo"  alt="logoIndo" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line>
+	                    </a>
+	               <a class="dropdown-toggle"  href="javascript:void(0);">
+	               <img  class="imgTypeEng" src="img/united-kingdom.png" id="eng"  alt="logoEng" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line>
 	                    </a>
 	            </span>
 	        </div>
@@ -60,19 +67,17 @@
 	    </div>
 
 
-	    <div class="chat-input hide">
-	    		 <div id="chat" class="conv-form-wrapper">
-	 <div class="options dragscroll" style="text-align: center;">
-
-	    <div class="option"  onclick="send_msg_dari_sugesstion('Wisata Halal Sampang')">Wisata Halal Sampang</div>
+		 <div id="chat" class="conv-form-wrapper">
+	 <div class="options dragscroll" style="text-align: center; white-space: normal;overflow: scroll;">
+	   <!--  <div class="option"  onclick="send_msg_dari_sugesstion('Wisata Halal Sampang')">Wisata Halal Sampang</div>
 	 	<div class="option"  onclick="send_msg_dari_sugesstion('Masjid Agung Sampang')">Masjid Agung Sampang</div>
 	    <div class="option"  onclick="send_msg_dari_sugesstion('Gili Mandangin')">Gili Mandangin</div>
-	 	<div class="option"  onclick="send_msg_dari_sugesstion('Makam Ratu Ibu')">Makam Ratu Ibu</div>
+	 	<div class="option"  onclick="send_msg_dari_sugesstion('Makam Ratu Ibu')">Makam Ratu Ibu</div> -->
 	</div>
 	    
 	</div>
 
-
+	    <div class="chat-input hide">
 	        <input type="text"  id="input-me" placeholder="Type a message...">
 	        <div class="input-action-icon" onclick="send_msg()">
 	           
@@ -84,14 +89,14 @@
 
 
 
-<!-- ENG -->
+<!-- INDO -->
 	<!-- Chat bot UI start -->
-	<!-- <div class="chat-screen">
+<!-- 	<div class="chat-screen-eng">
 	    <div class="chat-header">
 	    	<div class="chat-header-option hide">
 	            <span class="dropdown custom-dropdown">
 	               <a class="dropdown-toggle"  href="javascript:void(0);">
-	               <img src="img/united-kingdom.png" id="eng"  alt="logoIndo" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line>
+	               <img src="img/indonesia.png" id="indo"  alt="logoIndo" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line>
 	                    </a>
 	            </span>
 	        </div>
@@ -137,23 +142,17 @@
 	        </div>
 	    </div>
 	   
-	</div> -->
+	</div>
 
-
+ -->
 
 
 
 
 
 	<div class="chat-bot-icon">
-	    <!-- <img src="img/we-are-here.svg"/> -->
 	    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square animate"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
 	</div>
-<!-- <div class="chat-bot-icon" id="eng" style="right: 80px;"> -->
-	    <!-- <img src="img/we-are-here.svg"/> -->
-	  <!--   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square animate"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> -->
-	<!-- </div> -->
-
 
 	<script type="257be86a981729866f2fa61c-text/javascript">
 	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -179,7 +178,7 @@
 	        });
 	        </script>
 	<script>
-		var tipe="";
+		var tipe="indo";
 	    $(document).ready(function () {
 	        //Toggle fullscreen
 
@@ -188,30 +187,82 @@
 	            // $(this).children('svg').toggleClass('animate');
 			   $('.chat-screen').toggleClass('show-chat');
 	            $('.chat-mail').addClass('hide');
-
-	             $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
+	            $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
 	            $('.chat-body').removeClass('hide');
 	            $('.chat-input').removeClass('hide');
 	            $('.chat-header-option').removeClass('hide');
 	            $('.chat-bot-icon').hide();
+	 		// console.log("TIPE",tipe ,'idImg', $('.imgType').attr('id'));
+	        	getAwalSuggestion('indo');
+	 		
+
 	        });
 
 	        $("#indo").click(function (e) {
-			tipe="indo";
+	        	getAwalSuggestion('indo');
+		       $('.imgTypeEng').attr('width','16');
+	           $('.imgTypeEng').attr('height','16');
+	           $('.imgTypeEng').attr('viewBox','0 0 16 16');
+	           $('.imgTypeIndo').attr('width','22');
+	           $('.imgTypeIndo').attr('height','22');
+	           $('.imgTypeInd').attr('viewBox','0  22 22');
+		        $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
+				tipe="indo";
 
-	             $('#text_judul').text('Selamat datang di @SampangTourismoBot. Saya disini akan membantu anda mengenai informasi wisata halal di Sampang. Jangan sungkan untuk bertanya. :)');
+
 	        });
 
 	         $("#eng").click(function (e) {
+	        	getAwalSuggestion('eng');
+	           $('.imgTypeEng').attr('width','22');
+	           $('.imgTypeEng').attr('height','22');
+	           $('.imgTypeEng').attr('viewBox','0 0 22 22');
+	           $('.imgTypeIndo').attr('width','16');
+	           $('.imgTypeIndo').attr('height','16');
+	           $('.imgTypeInd').attr('viewBox','0 0 16 16');
+	           $('#text_judul').text('Welcome on board @SampangTourismoBot. Im here to help you with all Sampang halal tourism information. feel free to ask me questions. :)');
 	         	tipe = "eng";
-	             $('#text_judul').text('Welcome on board @SampangTourismoBot. Im here to help you with all Sampang halal tourism information. feel free to ask me questions. :)');
+
+	 // console.log("TIPE",tipe ,'idImg', $('.imgType').attr('id'));
+
 	        });
 	      
 	        $('.end-chat').click(function () {
 	            $('.chat-screen').toggleClass('show-chat');
 	            $('.chat-bot-icon').show();
 	  });
+
 	    });
+
+	    function getAwalSuggestion(tipe){
+	    		var tipe=tipe;
+	    		console.log(tipe,"TIPE");
+	    		if(tipe){
+	    		$.ajax({
+						url:'cek_awal_suggestion.php',
+						type:'post',
+						data:'txt='+tipe,
+						success:function(result1){
+						var result = JSON.parse(result1);
+						// alert(result);
+						// console.log(result,"res");
+						var result1="'"+result[1]+"'";
+						var result2="'"+result[2]+"'";
+						var result3="'"+result[3]+"'";
+						var result4="'"+result[4]+"'";
+						
+						$('#text_judul').remove();
+						var html='<div class="chat-bubble you" style="margin-top:2%;"> '+result[0]+'</div><div class="chat-start"  style="text-align: left;">'+getCurrentTime()+'</div>';	
+						jQuery('.messages-list').append(html);	
+
+						var html_sugesstion='<div class="option" onclick="send_msg_dari_sugesstion('+result1+')">'+result[1]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result2+')">'+result[2]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result3+')">'+result[3]+'</div><div class="option" onclick="send_msg_dari_sugesstion('+result4+')">'+result[4]+'</div>';
+								jQuery('.dragscroll').empty();
+								jQuery('.dragscroll').append(html_sugesstion);			
+								jQuery('.chat-screen .chat-body').scrollTop(jQuery('.chat-screen .chat-body')[0].scrollHeight);
+						}
+					});
+	    	}
+	    	}
 
 
 	    function getCurrentTime(){

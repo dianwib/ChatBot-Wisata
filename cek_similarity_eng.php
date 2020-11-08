@@ -51,15 +51,16 @@
 	    }
 // JIKA QUERY TDK DITEMUKAN
 	    if (empty($array_tf_idf_query)){
-	    	$output= "Maaf keyword salah";
-	    	$sugestion4 = "Pantai Lon Malang";
-	    	$sugestion1 = "Wisata Halal Sampang";
-	    	$sugestion3 = "Masjid Agung Sampang";
-	    	$sugestion2 = "Gili Mandangin";
-	    	$list_output = array($output,$sugestion1, $sugestion2,$sugestion3,$sugestion4);
-
-
+	    	$output= "Sorry, your keyword is wrong";
+	    	 $cb = mysqli_query($con,"SELECT count(*) as total, chatbot_hints_eng.question as question FROM log inner join chatbot_hints_eng on log.id_hint_eng=chatbot_hints_eng.id_hint where log.id_hint_eng is not null group by id_hint_eng order by total desc limit 4;")or die(mysqli_error($con));
+		if(mysqli_num_rows($cb) > 0){
+		$list_output=array($output);
+		while($row = mysqli_fetch_array($cb))
+            {
+                array_push($list_output,$row['question']);
+      		 }
 	    }
+	}
 
 // JIKA QUERY DITEMUKAN
 
@@ -156,7 +157,7 @@
 			
 			// QUERY UNDER TH
 			else{
-			$output= "Maaf keyword kurang lengkap / di bawah threshold";
+			$output= "Sorry, your keyword is incomplete";
 	    	$list_output = array($output,$sugestion1, $sugestion2,$sugestion3,$sugestion4);
 
 			}

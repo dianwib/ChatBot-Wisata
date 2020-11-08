@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:700);
 
 body {
   /*background: #222;*/
@@ -82,7 +82,7 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
     margin-left: 5%;
     margin-right: 5%;
     z-index: 9999;
-    width: 35% ;
+    width: 30% ;
     background: #fff;
     box-sizing: border-box;
     border-radius: 15px;
@@ -125,13 +125,13 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
 }
 .chat-screen .chat-header .chat-header-title {
     display: inline-block;
-    width: calc(82% - 50px);
+    width: calc(78% - 50px);
     color: #fff;
     font-size: 20px;
 }
 .chat-screen .chat-header .chat-header-option {
     display: inline-block;
-    width: 44px;
+    width: 50px;
     color: #fff;
     font-size: 14px;
     text-align: right;
@@ -179,7 +179,7 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
 
     padding: 15px;
     display: inline-block;
-    height: 72%;
+    height: 60%;
     /*background:  #e6ddd4;*/
     overflow: auto;
 }
@@ -225,6 +225,7 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
         background-position: 0% 50%;
     }*/
 }
+
 .chat-screen .chat-body .chat-bubble.me {
     background-image: linear-gradient(to right, #FFFFFF, #FFFFFF, #FFFFFF, #FFFFFF, #FFFFFF);
     color: #888ea8;
@@ -265,7 +266,7 @@ background: linear-gradient(-45deg, #dc35457a, #dee2e6, #f8f9fa, #23c6b89e);
     white-space: nowrap;
     position: absolute;
     z-index: 1;
-    top: 48px;
+    top: 15px;
     right: 15px;
     text-align: right;
 }

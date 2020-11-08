@@ -70,7 +70,7 @@ include('../database.php');
                    
                                     <?php
                                         $no=1;
-                                        $cb = mysqli_query($con,"SELECT count(*) as total, chatbot_hints.question FROM log inner join chatbot_hints on log.id_hint_id=chatbot_hints.id_hint where log.id_hint_id is not null group by id_hint_id limit 5;");
+                                        $cb = mysqli_query($con,"SELECT count(*) as total, chatbot_hints.question FROM log inner join chatbot_hints on log.id_hint_id=chatbot_hints.id_hint where log.id_hint_id is not null group by id_hint_id order by total desc limit 5;");
                                         while($row = mysqli_fetch_array($cb))
                                         {
                                             echo "<tr>
@@ -108,7 +108,7 @@ include('../database.php');
                    
                                     <?php
                                         $no=1;
-                                        $cb = mysqli_query($con,"SELECT count(*) as total, chatbot_hints_eng.question FROM log inner join chatbot_hints_eng on log.id_hint_eng=chatbot_hints_eng.id_hint where log.id_hint_eng is not null group by id_hint_eng limit 5;");
+                                        $cb = mysqli_query($con,"SELECT count(*) as total, chatbot_hints_eng.question FROM log inner join chatbot_hints_eng on log.id_hint_eng=chatbot_hints_eng.id_hint where log.id_hint_eng is not null group by id_hint_eng order by total desc limit 5;");
                                         while($row = mysqli_fetch_array($cb))
                                         {
                                             echo "<tr>
